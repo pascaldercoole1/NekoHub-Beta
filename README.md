@@ -1,2 +1,0 @@
-# NekoHub-Beta
-Beta 
