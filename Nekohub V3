@@ -1,3 +1,5 @@
+print("V3")
+
 local Release = "NekoHub Beta V7"
 local NotificationDuration = 6.5
 local RayfieldFolder = "NekoHub_Data"
