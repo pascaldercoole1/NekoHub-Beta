@@ -935,7 +935,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			end
 			
 			if Settings.Discord.RememberJoins then -- We do logic this way so if the developer changes this setting, the user still won't be prompted, only new users
-				writefile(RayfieldFolder.."/Discord Invites".."/"..Settings.Discord.Invite..ConfigurationExtension,"Rayfield RememberJoins is true for this invite, this invite will not ask you to join again")
+				writefile(RayfieldFolder.."/Discord Invites".."/"..Settings.Discord.Invite..ConfigurationExtension,"Nekohub RememberJoins is true for this invite, this invite will not ask you to join again")
 			end
 		else
 			
