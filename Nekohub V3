@@ -1,9 +1,8 @@
 local Release = "NekoHub Beta V7"
 local NotificationDuration = 6.5
-local RayfieldFolder = "Rayfield"
+local RayfieldFolder = "NekoHub_Data"
 local ConfigurationFolder = NekoHubLiberyRayfieldFolder.."/Configurations"
 local ConfigurationExtension = ".rfld"
-
 
 
 local RayfieldLibrary = {
@@ -239,7 +238,7 @@ local function LoadConfiguration(Configuration)
 				end    
 			end)
 		else
-			RayfieldLibrary:Notify({Title = "Flag Error", Content = "Gui was unable to find '"..FlagName.. "'' in the current script"})
+			RayfieldLibrary:Notify({Title = "Flag Error", Content = "Rayfield was unable to find '"..FlagName.. "'' in the current script"})
 		end
 	end)
 end
@@ -869,10 +868,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 	LoadingFrame.Subtitle.TextTransparency = 1
 	Main.Shadow.Image.ImageTransparency = 1
 	LoadingFrame.Version.TextTransparency = 1
-	LoadingFrame.Title.Text = Settings.LoadingTitle or "Nekohub is loading..."
-	LoadingFrame.Subtitle.Text = Settings.LoadingSubtitle
-	if Settings.LoadingTitle ~= "Loading..." then
-		LoadingFrame.Version.Text = "Nekohub"
+	LoadingFrame.Title.Text = Settings.LoadingTitle or "Rayfield Interface Suite"
+	LoadingFrame.Subtitle.Text = Settings.LoadingSubtitle or "by Sirius"
+	if Settings.LoadingTitle ~= "Rayfield Interface Suite" then
+		LoadingFrame.Version.Text = "Rayfield UI"
 	end
 	Topbar.Visible = false
 	Elements.Visible = false
