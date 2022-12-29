@@ -489,12 +489,16 @@ function RayfieldLibrary:Notify(NotificationSettings)
 
 		local blurlight = nil
 		if not getgenv().SecureMode then
-			blurlight = Instance.new("DepthOfFieldEffect",game:GetService("Lighting"))
+            --[[
+
+            blurlight = Instance.new("DepthOfFieldEffect",game:GetService("Lighting"))
 			blurlight.Enabled = true
 			blurlight.FarIntensity = 0
 			blurlight.FocusDistance = 51.6
 			blurlight.InFocusRadius = 50
 			blurlight.NearIntensity = 1
+
+            ]]
 			game:GetService("Debris"):AddItem(script,0)
 		end
 		
@@ -616,7 +620,9 @@ function RayfieldLibrary:Notify(NotificationSettings)
 		wait(0.2)
 		if not getgenv().SecureMode then
 			neon:UnbindFrame(Notification.BlurModule)
-			blurlight:Destroy()
+            if blurlight ~= nil then
+                blurlight:Destroy()
+            end
 		end
 		wait(0.9)
 		Notification:Destroy()
