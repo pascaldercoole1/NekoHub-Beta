@@ -1,3 +1,4 @@
+print("Database Version: 0.1")
 local Codes = {"Update1"}
 
 for i,v in pairs(Codes) do
