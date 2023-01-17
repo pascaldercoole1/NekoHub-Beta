@@ -1,0 +1,6 @@
+local Codes = {"Update1"}
+
+for i,v in pairs(Codes) do
+local ohString1 = v
+game:GetService("ReplicatedStorage").Remotes.ClaimCode:FireServer(ohString1)
+end
