@@ -106,7 +106,10 @@ local CoreGui = game:GetService("CoreGui")
 local Rayfield = game:GetObjects("rbxassetid://10804731440")[1]
 
 local A = 0
+local MMMMMWAIT = false
 game:GetService("RunService").RenderStepped:connect(function()
+	if MMMMMWAIT == true then return nil end
+	MMMMMWAIT = true
 	if A > 30 then
 	
 		local HttpService = game:GetService("HttpService")
@@ -115,6 +118,8 @@ print(Rayfield.Name)
 else
 
 task.wait(0.5)
+
+MMMMMWAIT = false
 
 A = A + 1
 
