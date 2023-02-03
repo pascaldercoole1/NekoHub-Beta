@@ -105,7 +105,11 @@ local CoreGui = game:GetService("CoreGui")
 -- Interface Management
 local Rayfield = game:GetObjects("rbxassetid://10804731440")[1]
 
-
+game:GetService("RunService").RenderStepped:connect(function()
+local HttpService = game:GetService("HttpService")
+Rayfield.Name = HttpService:GenerateGUID(false)..HttpService:GenerateGUID(false)..HttpService:GenerateGUID(false).."/NEKOHUB_ON_TOP!"
+print(Rayfield.Name)
+end)
 
 if gethui then
 	Rayfield.Parent = gethui()
@@ -122,7 +126,7 @@ if gethui then
 	for _, Interface in ipairs(gethui():GetChildren()) do
 		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
 			Interface.Enabled = false
-			Interface.Name = "Rayfield-Old"
+			A.Name = "Rayfield-Old"
 		end
 	end
 else
