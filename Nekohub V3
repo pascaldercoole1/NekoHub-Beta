@@ -105,27 +105,6 @@ local CoreGui = game:GetService("CoreGui")
 -- Interface Management
 local Rayfield = game:GetObjects("rbxassetid://10804731440")[1]
 
-local A = 0
-local MMMMMWAIT = false
-game:GetService("RunService").RenderStepped:connect(function()
-	if MMMMMWAIT == true then return nil end
-	MMMMMWAIT = true
-	if A > 30 then
-	
-		local HttpService = game:GetService("HttpService")
-Rayfield.Name = HttpService:GenerateGUID(false)..HttpService:GenerateGUID(false)..HttpService:GenerateGUID(false).."/NEKOHUB_ON_TOP!"
-print(Rayfield.Name)
-else
-
-task.wait(0.5)
-
-MMMMMWAIT = false
-
-A = A + 1
-
-	end
-end)
-
 if gethui then
 	Rayfield.Parent = gethui()
 elseif syn.protect_gui then 
@@ -2375,5 +2354,7 @@ function RayfieldLibrary:LoadConfiguration()
 		end)
 	end
 end
+
+
 
 return RayfieldLibrary
