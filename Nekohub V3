@@ -105,6 +105,8 @@ local CoreGui = game:GetService("CoreGui")
 -- Interface Management
 local Rayfield = game:GetObjects("rbxassetid://10804731440")[1]
 
+
+
 if gethui then
 	Rayfield.Parent = gethui()
 elseif syn.protect_gui then 
@@ -120,7 +122,7 @@ if gethui then
 	for _, Interface in ipairs(gethui():GetChildren()) do
 		if Interface.Name == Rayfield.Name and Interface ~= Rayfield then
 			Interface.Enabled = false
-			A.Name = "Rayfield-Old"
+			Interface.Name = "Rayfield-Old"
 		end
 	end
 else
@@ -238,7 +240,7 @@ local function LoadConfiguration(Configuration)
 				end    
 			end)
 		else
-			RayfieldLibrary:Notify({Title = "Flag Error", Content = "Gui was unable to find '"..FlagName.. "'' in the current script"})
+			RayfieldLibrary:Notify({Title = "Flag Error", Content = "Rayfield was unable to find '"..FlagName.. "'' in the current script"})
 		end
 	end)
 end
@@ -487,16 +489,12 @@ function RayfieldLibrary:Notify(NotificationSettings)
 
 		local blurlight = nil
 		if not getgenv().SecureMode then
-            --[[
-
-            blurlight = Instance.new("DepthOfFieldEffect",game:GetService("Lighting"))
+			blurlight = Instance.new("DepthOfFieldEffect",game:GetService("Lighting"))
 			blurlight.Enabled = true
 			blurlight.FarIntensity = 0
 			blurlight.FocusDistance = 51.6
 			blurlight.InFocusRadius = 50
 			blurlight.NearIntensity = 1
-
-            ]]
 			game:GetService("Debris"):AddItem(script,0)
 		end
 		
@@ -521,7 +519,7 @@ function RayfieldLibrary:Notify(NotificationSettings)
 				NewAction.MouseButton1Click:Connect(function()
 					local Success, Response = pcall(Action.Callback)
 					if not Success then
-						print("Nekohub | Action: "..Action.Name.." Callback Error " ..tostring(Response))
+						print("Rayfield | Action: "..Action.Name.." Callback Error " ..tostring(Response))
 					end
 					ActionCompleted = true
 				end)
@@ -572,7 +570,7 @@ function RayfieldLibrary:Notify(NotificationSettings)
 
 		if Rayfield.Name == "Rayfield" then
 			neon:BindFrame(Notification.BlurModule, {
-				Transparency = 1;
+				Transparency = 0.98;
 				BrickColor = BrickColor.new("Institutional white");
 			})
 		end
@@ -618,9 +616,7 @@ function RayfieldLibrary:Notify(NotificationSettings)
 		wait(0.2)
 		if not getgenv().SecureMode then
 			neon:UnbindFrame(Notification.BlurModule)
-            if blurlight ~= nil then
-                blurlight:Destroy()
-            end
+			blurlight:Destroy()
 		end
 		wait(0.9)
 		Notification:Destroy()
@@ -865,7 +861,7 @@ function Minimise()
 end
 
 function RayfieldLibrary:CreateWindow(Settings)
-	local Passthrough = false
+    local Passthrough = false
 	Topbar.Title.Text = Settings.Name
 	Main.Size = UDim2.new(0, 450, 0, 260)
 	Main.Visible = true
@@ -939,7 +935,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 			end
 			
 			if Settings.Discord.RememberJoins then -- We do logic this way so if the developer changes this setting, the user still won't be prompted, only new users
-				writefile(RayfieldFolder.."/Discord Invites".."/"..Settings.Discord.Invite..ConfigurationExtension,"Nekohub RememberJoins is true for this invite, this invite will not ask you to join again")
+				writefile(RayfieldFolder.."/Discord Invites".."/"..Settings.Discord.Invite..ConfigurationExtension,"Rayfield RememberJoins is true for this invite, this invite will not ask you to join again")
 			end
 		else
 			
@@ -2354,7 +2350,5 @@ function RayfieldLibrary:LoadConfiguration()
 		end)
 	end
 end
-
-
 
 return RayfieldLibrary
