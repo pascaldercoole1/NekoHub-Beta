@@ -13,7 +13,7 @@ local Config = {
     NamesOutlineColor = Color3.fromRGB(0,0,0),
     NamesFont         = 2, -- 0,1,2,3
     NamesSize         = 13,
-    BountySide     = "Bottom", -- Bottom,Up
+    BountySide        = "Bottom", -- Bottom,Up
     Bounty            = false,
     DistanceLimit     = 300
 }
@@ -21,9 +21,11 @@ local Config = {
 function CreateEsp(Player)
     local Box,BoxOutline,Name,HealthBar,HealthBarOutline,BountyText = Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text"),Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text")
     local Updater = game:GetService("RunService").RenderStepped:Connect(function()
-    
-    local TESTDIS = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Player.Character:FindFirstChild("HumanoidRootPart").Position).Magnitude
-    
+
+
+       local TESTDIS = (game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position - Player.Character:FindFirstChild("HumanoidRootPart").Position).Magnitude
+
+
     if TESTDIS < Config.DistanceLimit then
             
     if Player.Character ~= nil and Player.Character:FindFirstChild("Humanoid") ~= nil and Player.Character:FindFirstChild("HumanoidRootPart") ~= nil and Player.Character.Humanoid.Health > 0 and Player.Character:FindFirstChild("Head") ~= nil then
