@@ -62,7 +62,7 @@ function CreateEsp(Player)
             
              if Config.Bounty then
     
-                local PLR = game:GetService("Players"):FindFirstChild(Player.Name)
+                local PLR = game:GetService("Players"):FindFirstChild(Player.Character.Name)
     
                 BountyText.Visible = IsVisible
                 BountyText.Color = Config.NamesColor
