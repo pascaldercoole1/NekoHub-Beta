@@ -15,11 +15,17 @@ local Config = {
     NamesSize         = 13,
     BountySide     = "Bottom", -- Bottom,Up
     Bounty            = false
+    DistanceLimit     = 300
 }
 
 function CreateEsp(Player)
     local Box,BoxOutline,Name,HealthBar,HealthBarOutline,BountyText = Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text"),Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text")
     local Updater = game:GetService("RunService").RenderStepped:Connect(function()
+    
+    local TESTDIS = (game.Players.LocalPlayer.Character.HumanoidootPart.Position - Player.Character.Position).Magnitude
+    
+    if TESTDIS < Config.DistanceLimit then
+            
     if Player.Character ~= nil and Player.Character:FindFirstChild("Humanoid") ~= nil and Player.Character:FindFirstChild("HumanoidRootPart") ~= nil and Player.Character.Humanoid.Health > 0 and Player.Character:FindFirstChild("Head") ~= nil then
             local Target2dPosition,IsVisible = workspace.CurrentCamera:WorldToViewportPoint(Player.Character.HumanoidRootPart.Position)
             local scale_factor = 1 / (Target2dPosition.Z * math.tan(math.rad(workspace.CurrentCamera.FieldOfView * 0.5)) * 2) * 100
@@ -136,6 +142,7 @@ function CreateEsp(Player)
                 HealthBarOutline:Remove()
                 Updater:Disconnect()
             end
+        end
         end
     end)
 end
