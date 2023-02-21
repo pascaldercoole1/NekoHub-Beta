@@ -134,6 +134,7 @@ function CreateEsp(Player)
             Name.Visible = false
             HealthBar.Visible = false
             HealthBarOutline.Visible = false
+            BountyText.Visible = false
             if not Player then
                 Box:Remove()
                 BoxOutline:Remove()
@@ -141,6 +142,7 @@ function CreateEsp(Player)
                 HealthBar:Remove()
                 HealthBarOutline:Remove()
                 Updater:Disconnect()
+                BountyText:Remove()
             end
         end
         end
