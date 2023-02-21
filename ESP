@@ -61,11 +61,13 @@ function CreateEsp(Player)
             -- Bounty --
             
              if Config.Bounty then
-
+    
+                local PLR = game:GetService("Players"):FindFirstChild(Player.Name)
+    
                 BountyText.Visible = IsVisible
                 BountyText.Color = Config.NamesColor
-               if  Player:FindFirstChild("Bounty") then
-                BountyText.Text = Player:FindFirstChild("Bounty").Value.." Bounty"
+               if  PLR:FindFirstChild("Bounty") then
+                BountyText.Text = PLR:FindFirstChild("Bounty").Value.." Bounty"
                 else
                 BountyText.Text = "? Bounty"
                end
