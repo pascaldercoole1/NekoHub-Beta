@@ -14,7 +14,7 @@ local Config = {
     NamesFont         = 2, -- 0,1,2,3
     NamesSize         = 13,
     BountySide     = "Bottom", -- Bottom,Up
-    Bounty            = false
+    Bounty            = false,
     DistanceLimit     = 300
 }
 
