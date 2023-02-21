@@ -13,6 +13,7 @@ local Config = {
     NamesOutlineColor = Color3.fromRGB(0,0,0),
     NamesFont         = 2, -- 0,1,2,3
     NamesSize         = 13,
+    BountySide     = "Bottom", -- Bottom,Up
     Bounty            = false
 }
 
@@ -74,7 +75,11 @@ function CreateEsp(Player)
                 BountyText.Center = true
                 BountyText.Outline = Config.NamesOutline
                 BountyText.OutlineColor = Config.NamesOutlineColor
-                BountyText.Position = Vector2.new(Target2dPosition.X,Target2dPosition.Y - height * 0.5 + -10)
+                if BountySide == "Bottom" then
+                BountyText.Position = Vector2.new(Target2dPosition.X,Target2dPosition.Y - height * 0.5 + -15)
+                else
+                   BountyText.Position = Vector2.new(Target2dPosition.X,Target2dPosition.Y - height * 0.5 + -25)
+                end
                 BountyText.Font = Config.NamesFont
                 BountyText.Size = Config.NamesSize
             else
