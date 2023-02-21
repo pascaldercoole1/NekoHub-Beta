@@ -15,7 +15,7 @@ local Config = {
 }
 
 function CreateEsp(Player)
-    local Box,BoxOutline,Name,HealthBar,HealthBarOutline = Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text"),Drawing.new("Square"),Drawing.new("Square")
+    local Box,BoxOutline,Name,HealthBar,HealthBarOutline,BountyText = Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text"),Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text")
     local Updater = game:GetService("RunService").RenderStepped:Connect(function()
     if Player.Character ~= nil and Player.Character:FindFirstChild("Humanoid") ~= nil and Player.Character:FindFirstChild("HumanoidRootPart") ~= nil and Player.Character.Humanoid.Health > 0 and Player.Character:FindFirstChild("Head") ~= nil then
             local Target2dPosition,IsVisible = workspace.CurrentCamera:WorldToViewportPoint(Player.Character.HumanoidRootPart.Position)
@@ -60,21 +60,21 @@ function CreateEsp(Player)
             
              if Config.Bounty then
 
-                Name.Visible = IsVisible
-                Name.Color = Config.NamesColor
+                BountyText.Visible = IsVisible
+                BountyText.Color = Config.NamesColor
                if  Player:FindFirstChild("Bounty") then
-                Name.Text = Player:FindFirstChild("Bounty").Value.." Bounty"
+                BountyText.Text = Player:FindFirstChild("Bounty").Value.." Bounty"
                 else
-                Name.Text = "? Bounty"
+                BountyText.Text = "? Bounty"
                end
-                Name.Center = true
-                Name.Outline = Config.NamesOutline
-                Name.OutlineColor = Config.NamesOutlineColor
-                Name.Position = Vector2.new(Target2dPosition.X,Target2dPosition.Y - height * 0.5 + -25)
-                Name.Font = Config.NamesFont
-                Name.Size = Config.NamesSize
+                BountyText.Center = true
+                BountyText.Outline = Config.NamesOutline
+                BountyText.OutlineColor = Config.NamesOutlineColor
+                BountyText.Position = Vector2.new(Target2dPosition.X,Target2dPosition.Y - height * 0.5 + -25)
+                BountyText.Font = Config.NamesFont
+                BountyText.Size = Config.NamesSize
             else
-                Name.Visible = false
+                BountyText.Visible = false
             end
             
             -- Bounty --
