@@ -72,7 +72,7 @@ function CreateEsp(Player)
                 BountyText.Center = true
                 BountyText.Outline = Config.NamesOutline
                 BountyText.OutlineColor = Config.NamesOutlineColor
-                BountyText.Position = Vector2.new(Target2dPosition.X,Target2dPosition.Y - height * 0.5 + -25)
+                BountyText.Position = Vector2.new(Target2dPosition.X,Target2dPosition.Y - height * 0.5 + -10)
                 BountyText.Font = Config.NamesFont
                 BountyText.Size = Config.NamesSize
             else
