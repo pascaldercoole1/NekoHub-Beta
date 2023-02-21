@@ -10,7 +10,8 @@ local Config = {
     NamesColor        = Color3.fromRGB(255,255,255),
     NamesOutlineColor = Color3.fromRGB(0,0,0),
     NamesFont         = 2, -- 0,1,2,3
-    NamesSize         = 13
+    NamesSize         = 13,
+    Bounty            = false
 }
 
 function CreateEsp(Player)
@@ -54,6 +55,30 @@ function CreateEsp(Player)
             else
                 Name.Visible = false
             end
+            
+            -- Bounty --
+            
+             if Config.Bounty then
+
+                Name.Visible = IsVisible
+                Name.Color = Config.NamesColor
+               if  Player:FindFirstChild("Bounty") then
+                Name.Text = Player:FindFirstChild("Bounty").Value.." Bounty"
+                else
+                Name.Text = "? Bounty"
+               end
+                Name.Center = true
+                Name.Outline = Config.NamesOutline
+                Name.OutlineColor = Config.NamesOutlineColor
+                Name.Position = Vector2.new(Target2dPosition.X,Target2dPosition.Y - height * 0.5 + -25)
+                Name.Font = Config.NamesFont
+                Name.Size = Config.NamesSize
+            else
+                Name.Visible = false
+            end
+            
+            -- Bounty --
+            
             if Config.HealthBar then
                 HealthBarOutline.Visible = IsVisible
                 HealthBarOutline.Color = Color3.fromRGB(0,0,0)
