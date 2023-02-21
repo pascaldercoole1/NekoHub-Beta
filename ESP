@@ -22,7 +22,7 @@ function CreateEsp(Player)
     local Box,BoxOutline,Name,HealthBar,HealthBarOutline,BountyText = Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text"),Drawing.new("Square"),Drawing.new("Square"),Drawing.new("Text")
     local Updater = game:GetService("RunService").RenderStepped:Connect(function()
     
-    local TESTDIS = (game.Players.LocalPlayer.Character.HumanoidootPart.Position - Player.Character.Position).Magnitude
+    local TESTDIS = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Player.Character:FindFirstChild("HumanoidRootPart").Position).Magnitude
     
     if TESTDIS < Config.DistanceLimit then
             
