@@ -1,4 +1,4 @@
-print("V3")
+print("V3.1")
 local _ScriptName = "NekoHub Beta V3"
 local Release = "NekoHub Beta V3"
 local NotificationDuration = 6.5
