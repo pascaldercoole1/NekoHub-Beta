@@ -6,6 +6,17 @@ local RayfieldFolder = "NekoHub_Data"
 local ConfigurationFolder = RayfieldFolder.."/Configurations"
 local ConfigurationExtension = ".rfld"
 
+_G.SVMZeGIyVb8MDqFsrL0M = true
+_G.DHOjnFpmeFnjKYNC6QuD = "Aqd40Qm85JvaMmOS8pUj"
+_G.JIFGANGANGJANBGJAJIGNJIOAGN = {"tIGZyFMUX7cDScueyVni",
+				"66iPA3KgXmEEUouOgZoh",
+				"zY7MDhPFjw6YrjdFAwFJ",
+				"YC09QOTqPklw9bSq4fWF",
+				"khsXi6VE7U9SqQiIq9kb",
+				"O0bh7BtCtwoSOBw4PXyA"
+}
+
+_G.CKl9BEqLQFCSwh7n3Fzx = _G.DHOjnFpmeFnjKYNC6QuD.._G.JIFGANGANGJANBGJAJIGNJIOAGN[3]
 
 local RayfieldLibrary = {
 	Flags = {},
