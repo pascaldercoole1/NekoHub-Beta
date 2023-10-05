@@ -1,4 +1,4 @@
-local utilities = {}
+local aux = {}
 
 local getGc = getgc
 local getInfo = debug.getinfo or getinfo
@@ -7,7 +7,7 @@ local getConstants = debug.getconstants or getconstants or getconsts
 local isXClosure = is_synapse_function or issentinelclosure or is_protosmasher_closure or is_sirhurt_closure or istempleclosure or checkclosure
 local isLClosure = islclosure or is_l_closure or (iscclosure and function(f) return not iscclosure(f) end)
 
-assert(getGc and getInfo and getConstants and isXClosure, "Exploit not supported")
+assert(getGc and getInfo and getConstants and isXClosure, "Your exploit is not supported")
 
 local placeholderUserdataConstant = newproxy(false)
 
@@ -28,7 +28,7 @@ local function matchConstants(closure, list)
 end
 
 local function searchClosure(script, name, upvalueIndex, constants)
-    for _, v in pairs(getGc()) do
+    for _i, v in pairs(getGc()) do
         local parentScript = rawget(getfenv(v), "script")
 
         if type(v) == "function" and 
@@ -48,7 +48,7 @@ local function searchClosure(script, name, upvalueIndex, constants)
     end
 end
 
-utilities.placeholderUserdataConstant = placeholderUserdataConstant
-utilities.searchClosure = searchClosure
+aux.placeholderUserdataConstant = placeholderUserdataConstant
+aux.searchClosure = searchClosure
 
-return utilities
+return aux
