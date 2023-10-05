@@ -11,7 +11,7 @@ assert(gc and getInfoFunc and getConstantsFunc and isXTypeClosure, "Exploit not 
 
 local userdataPlaceholder = newproxy(false)
 
-local function matchConstantValues(closure, constantList)
+local function matchConstants(closure, constantList)
     if not constantList then
         return true
     end
@@ -27,7 +27,7 @@ local function matchConstantValues(closure, constantList)
     return true
 end
 
-local function findClosureInScript(script, closureName, upvalueIndex, constantValues)
+local function searchClosure(script, closureName, upvalueIndex, constantValues)
     for _, v in pairs(gc()) do
         local parentScript = rawget(getfenv(v), "script")
 
