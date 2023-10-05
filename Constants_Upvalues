@@ -9,6 +9,8 @@ local isLocalClosure = islclosure or is_l_closure or (iscclosure and function(f)
 
 assert(gc and getInfoFunc and getConstantsFunc and isXTypeClosure, "Exploit not supported")
 
+print("hi nice to see")
+
 local userdataPlaceholder = newproxy(false)
 
 local function matchConstants(closure, constantList)
